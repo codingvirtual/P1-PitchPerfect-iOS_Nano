@@ -7,29 +7,59 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
-
+    
+    var soundPlayer:AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
+            var filePathUrl = NSURL.fileURLWithPath(filePath)
+            soundPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
+            soundPlayer.enableRate = true
+            
+        } else {
+            println("The filePath is empty")
+        }
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func PlaySlowAudio(sender: UIButton) {
+        
+        soundPlayer.stop()
+        soundPlayer.rate = 0.5
+        soundPlayer.play()
+        
+        
+    }
+    
+    @IBAction func PlayFastAudio(sender: UIButton) {
+        
+        soundPlayer.stop()
+        soundPlayer.rate = 1.5
+        soundPlayer.play()
+        
+    }
+    
+    @IBAction func StopAudio(sender: UIButton) {
+        soundPlayer.stop()
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

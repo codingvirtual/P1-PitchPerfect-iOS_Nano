@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StartRecordViewController: UIViewController {
 
     @IBOutlet weak var recordingInProgress: UILabel!
     
