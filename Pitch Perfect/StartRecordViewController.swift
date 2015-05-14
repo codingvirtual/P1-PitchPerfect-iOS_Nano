@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StartRecordViewController.swift
 //  Pitch Perfect
 //
 //  Created by Greg Palen on 5/12/15.
@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
-class StartRecordViewController: UIViewController {
+class StartRecordViewController: UIViewController, AVAudioRecorderDelegate {
+    
+    var audioRecorder:AVAudioRecorder!
 
     @IBOutlet weak var recordingInProgress: UILabel!
     
@@ -34,15 +37,36 @@ class StartRecordViewController: UIViewController {
         recordingInProgress.hidden = false
         stopRecording.hidden = false
         startRecording.enabled = false
-        //TODO: Record the user's voice
-        println("in recordAudio")
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        println(filePath)
+        
+        var session = AVAudioSession.sharedInstance()
+        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        
+        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        audioRecorder.delegate = self;
+        audioRecorder.meteringEnabled = true
+        audioRecorder.record()
     }
 
     @IBAction func stopAudio(sender: UIButton) {
         recordingInProgress.hidden = true
         stopRecording.hidden = true
         startRecording.enabled = true
-        //TODO: stop recording audio
+        audioRecorder.stop()
+        var audioSession = AVAudioSession.sharedInstance()
+        audioSession.setActive(false, error: nil)
+    }
+    
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+        <#code#>
     }
 
 }
