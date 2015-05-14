@@ -38,6 +38,7 @@
                                 </state>
                                 <connections>
                                     <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7TL-Bd-1L2"/>
+                                    <segue destination="2s6-dh-yu4" kind="show" id="6kE-6B-jFa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -90,7 +91,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1336.5" y="1051"/>
+            <point key="canvasLocation" x="1207.5" y="1051"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="H3Y-EG-Xdr">
+            <objects>
+                <viewController id="2s6-dh-yu4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SYg-dT-UQZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZgN-6l-xH2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cOC-m5-i7H">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSk-Kj-hj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2011.5" y="1051"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U88-Zf-yhc">
