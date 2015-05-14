@@ -40,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7TL-Bd-1L2"/>
-                                    <segue destination="2s6-dh-yu4" kind="show" id="6kE-6B-jFa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,6 +88,7 @@
                         <outlet property="recordingInProgress" destination="StC-fR-ecm" id="ivE-Sr-9uP"/>
                         <outlet property="startRecording" destination="uVz-WF-a6l" id="5ka-QE-drb"/>
                         <outlet property="stopRecording" destination="tYA-7p-nWn" id="Abh-aX-Ou7"/>
+                        <segue destination="2s6-dh-yu4" kind="show" identifier="stopRecording" id="P9B-ma-qoK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -134,18 +134,44 @@
                                     <action selector="StopAudio:" destination="2s6-dh-yu4" eventType="touchUpInside" id="qbl-V1-LWi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpu-Bu-JX0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PlayChipmunk:" destination="2s6-dh-yu4" eventType="touchUpInside" id="5r5-1W-7NA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adv-PS-AYm">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="rabbit_image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PlayDarth:" destination="2s6-dh-yu4" eventType="touchUpInside" id="5UU-m5-Tg8"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14509804549999999" green="0.8078432083" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="tpu-Bu-JX0" firstAttribute="leading" secondItem="cOC-m5-i7H" secondAttribute="leadingMargin" constant="30" id="ACR-Gp-dBK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Adv-PS-AYm" secondAttribute="trailing" constant="30" id="GNd-k4-WeF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cyh-ea-ZjL" secondAttribute="trailing" constant="30" id="MHN-YU-75Y"/>
                             <constraint firstItem="cyh-ea-ZjL" firstAttribute="top" secondItem="SYg-dT-UQZ" secondAttribute="bottom" constant="146" id="aa1-EE-v2I">
                                 <variation key="widthClass=compact" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="Adv-PS-AYm" firstAttribute="top" secondItem="cyh-ea-ZjL" secondAttribute="bottom" constant="67" id="dDJ-pO-9l0">
+                                <variation key="widthClass=compact" constant="70"/>
                             </constraint>
                             <constraint firstItem="ZgN-6l-xH2" firstAttribute="top" secondItem="Wd0-5R-uAp" secondAttribute="bottom" constant="107" id="fhg-FK-qWl">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="g7l-cQ-sRk" firstAttribute="leading" secondItem="cOC-m5-i7H" secondAttribute="leadingMargin" constant="32" id="fz8-uC-xHG">
                                 <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="tpu-Bu-JX0" firstAttribute="top" secondItem="g7l-cQ-sRk" secondAttribute="bottom" constant="67" id="lcG-AW-o33">
+                                <variation key="widthClass=compact" constant="70"/>
                             </constraint>
                             <constraint firstItem="g7l-cQ-sRk" firstAttribute="top" secondItem="SYg-dT-UQZ" secondAttribute="bottom" constant="39" id="p1P-w7-mnb">
                                 <variation key="widthClass=compact" constant="50"/>
@@ -157,12 +183,18 @@
                                 <exclude reference="g7l-cQ-sRk"/>
                                 <exclude reference="cyh-ea-ZjL"/>
                                 <exclude reference="Wd0-5R-uAp"/>
+                                <exclude reference="tpu-Bu-JX0"/>
+                                <exclude reference="Adv-PS-AYm"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="fz8-uC-xHG"/>
                                 <exclude reference="p1P-w7-mnb"/>
                                 <exclude reference="MHN-YU-75Y"/>
                                 <exclude reference="aa1-EE-v2I"/>
+                                <exclude reference="ACR-Gp-dBK"/>
+                                <exclude reference="lcG-AW-o33"/>
+                                <exclude reference="GNd-k4-WeF"/>
+                                <exclude reference="dDJ-pO-9l0"/>
                                 <exclude reference="yDJ-KR-2Eo"/>
                                 <exclude reference="fhg-FK-qWl"/>
                             </mask>
@@ -172,12 +204,18 @@
                                 <include reference="g7l-cQ-sRk"/>
                                 <include reference="cyh-ea-ZjL"/>
                                 <include reference="Wd0-5R-uAp"/>
+                                <include reference="tpu-Bu-JX0"/>
+                                <include reference="Adv-PS-AYm"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="fz8-uC-xHG"/>
                                 <include reference="p1P-w7-mnb"/>
                                 <include reference="MHN-YU-75Y"/>
                                 <include reference="aa1-EE-v2I"/>
+                                <include reference="ACR-Gp-dBK"/>
+                                <include reference="lcG-AW-o33"/>
+                                <include reference="GNd-k4-WeF"/>
+                                <include reference="dDJ-pO-9l0"/>
                                 <include reference="yDJ-KR-2Eo"/>
                                 <include reference="fhg-FK-qWl"/>
                             </mask>
@@ -208,6 +246,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="rabbit_image" width="100" height="100"/>
         <image name="snail_image" width="100" height="100"/>
