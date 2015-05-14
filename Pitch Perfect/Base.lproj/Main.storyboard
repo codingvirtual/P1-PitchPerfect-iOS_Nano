@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Start Record View Controller-->
+        <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Start Record View Controller" id="vXZ-lx-hvc" customClass="StartRecordViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Record" definesPresentationContext="YES" id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -27,7 +27,7 @@
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Or-K3-LMR"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StC-fR-ecm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="184" placeholderIntrinsicHeight="21" text="Tap to record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StC-fR-ecm">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,6 +48,7 @@
                             <constraint firstItem="uVz-WF-a6l" firstAttribute="centerX" secondItem="StC-fR-ecm" secondAttribute="centerX" id="38o-AQ-2Wz"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="tYA-7p-nWn" secondAttribute="bottom" constant="8" id="Dbf-vD-dom"/>
                             <constraint firstAttribute="centerY" secondItem="uVz-WF-a6l" secondAttribute="centerY" id="QVX-c1-WrO"/>
+                            <constraint firstAttribute="centerX" secondItem="StC-fR-ecm" secondAttribute="centerX" id="bYp-Wd-R68"/>
                             <constraint firstAttribute="centerX" secondItem="tYA-7p-nWn" secondAttribute="centerX" id="pks-VU-UOL"/>
                             <constraint firstItem="StC-fR-ecm" firstAttribute="top" secondItem="uVz-WF-a6l" secondAttribute="bottom" constant="8" id="xgU-zg-K67"/>
                             <constraint firstAttribute="centerX" secondItem="uVz-WF-a6l" secondAttribute="centerX" id="xk6-zM-ypY"/>
@@ -59,12 +60,13 @@
                                 <exclude reference="tYA-7p-nWn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Dbf-vD-dom"/>
-                                <exclude reference="xgU-zg-K67"/>
-                                <exclude reference="pks-VU-UOL"/>
                                 <exclude reference="38o-AQ-2Wz"/>
                                 <exclude reference="QVX-c1-WrO"/>
                                 <exclude reference="xk6-zM-ypY"/>
+                                <exclude reference="bYp-Wd-R68"/>
+                                <exclude reference="xgU-zg-K67"/>
+                                <exclude reference="pks-VU-UOL"/>
+                                <exclude reference="Dbf-vD-dom"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -74,16 +76,19 @@
                                 <include reference="tYA-7p-nWn"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Dbf-vD-dom"/>
-                                <include reference="xgU-zg-K67"/>
-                                <include reference="pks-VU-UOL"/>
-                                <include reference="38o-AQ-2Wz"/>
+                                <exclude reference="38o-AQ-2Wz"/>
                                 <include reference="QVX-c1-WrO"/>
                                 <include reference="xk6-zM-ypY"/>
+                                <include reference="bYp-Wd-R68"/>
+                                <include reference="xgU-zg-K67"/>
+                                <include reference="pks-VU-UOL"/>
+                                <include reference="Dbf-vD-dom"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="nzk-Vo-Goy"/>
+                    <navigationItem key="navigationItem" title="Record" id="nzk-Vo-Goy">
+                        <barButtonItem key="backBarButtonItem" title="Record" id="h9B-OB-YNM"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="recordingInProgress" destination="StC-fR-ecm" id="ivE-Sr-9uP"/>
                         <outlet property="startRecording" destination="uVz-WF-a6l" id="5ka-QE-drb"/>
@@ -98,7 +103,7 @@
         <!--Play Sounds View Controller-->
         <scene sceneID="H3Y-EG-Xdr">
             <objects>
-                <viewController title="Play Sounds View Controller" id="2s6-dh-yu4" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2s6-dh-yu4" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYg-dT-UQZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ZgN-6l-xH2"/>
@@ -145,7 +150,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adv-PS-AYm">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="rabbit_image">
+                                <state key="normal" image="darth">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -247,6 +252,7 @@
     </scenes>
     <resources>
         <image name="chipmunk" width="100" height="100"/>
+        <image name="darth" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="rabbit_image" width="100" height="100"/>
         <image name="snail_image" width="100" height="100"/>

@@ -1,5 +1,5 @@
 //
-//  StartRecordViewController.swift
+//  RecordSoundsViewController.swift
 //  Pitch Perfect
 //
 //  Created by Greg Palen on 5/12/15.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class StartRecordViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
@@ -22,11 +22,10 @@ class StartRecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
-        stopRecording.hidden = true
+        recordingInProgress.text = "Tap to Record"
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +34,7 @@ class StartRecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(sender: UIButton) {
-        recordingInProgress.hidden = false
+        recordingInProgress.text = "Recording in progress..."
         stopRecording.hidden = false
         startRecording.enabled = false
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
@@ -58,9 +57,7 @@ class StartRecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func stopAudio(sender: UIButton) {
-        recordingInProgress.hidden = true
         stopRecording.hidden = true
-        startRecording.enabled = true
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
@@ -68,14 +65,14 @@ class StartRecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if(flag) {
-        recordedAudio = RecordedAudio()
-        recordedAudio.filePathUrl = recorder.url
-        recordedAudio.title = recorder.url.lastPathComponent
+        recordedAudio = RecordedAudio(url: recorder.url, title: recorder.url.lastPathComponent!)
+        recordingInProgress.text = "Tap to Record"
+        startRecording.enabled = true
         self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         } else {
             println("recording failed")
+            recordingInProgress.text = "Tap to Record"
             startRecording.enabled = true
-            stopRecording.hidden = true
         }
     }
     
