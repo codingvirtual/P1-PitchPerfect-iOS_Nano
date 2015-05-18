@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373256AD1B0A26D90058496F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 373256AC1B0A26D90058496F /* README.txt */; };
 		37714EF31B02BA2A002D0EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37714EF21B02BA2A002D0EF4 /* AppDelegate.swift */; };
 		37714EF51B02BA2A002D0EF4 /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37714EF41B02BA2A002D0EF4 /* RecordSoundsViewController.swift */; };
 		37714EF81B02BA2A002D0EF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37714EF61B02BA2A002D0EF4 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		373256AC1B0A26D90058496F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		37714EED1B02BA2A002D0EF4 /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37714EF11B02BA2A002D0EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37714EF21B02BA2A002D0EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				37714EFB1B02BA2A002D0EF4 /* LaunchScreen.xib */,
 				37714EF01B02BA2A002D0EF4 /* Supporting Files */,
 				37E349611B043428006C1EC3 /* PlaySoundsViewController.swift */,
+				373256AC1B0A26D90058496F /* README.txt */,
 			);
 			path = "Pitch Perfect";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				373256AD1B0A26D90058496F /* README.txt in Resources */,
 				37714EF81B02BA2A002D0EF4 /* Main.storyboard in Resources */,
 				37714EFD1B02BA2A002D0EF4 /* LaunchScreen.xib in Resources */,
 				37E349691B0463DA006C1EC3 /* movie_quote.mp3 in Resources */,
