@@ -1,9 +1,14 @@
 This application allows an iOS device (formatted for iPhone) to record audio through the internal
 microphone and then play back the audio with an applied "effect." Possible effects are:
+
 a)  Play back at slower than normal rate (represented by the snail icon)
+
 b)  Play back at faster than normal rate (rabbit icon)
+
 c)  Play back in a higher voice than normal (play at a higher pitch; Chipmunk icon)
+
 d)  Play back in a deeper voice than normal (play at a lower pitch; Darth Vader icon)
+
 
 Upon entry, the app lands on the recording screen where the user is presented with a prominent
 microphone icon in the center of the screen and a prompting message indicating "Tap to Record"
